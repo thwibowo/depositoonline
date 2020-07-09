@@ -755,24 +755,24 @@ footer{
 	}
 	
 	.main-home-wrapper h1{
-		font-size: 40px;
+		font-size: 50px;
 	}
 	
 	.heading-and-line{
 		padding: 15px 30px 40px 30px;
-		width: 400px;
+		width: 500px;
 	}
 
 	.heading-and-line p{
-		font-size: 20px;
+		font-size: 22px;
 	}
 
 	.bank{
-		font-size: 24px;
+		font-size: 28px;
 	}
 
 	.sulselbar{
-		font-size: 24px;
+		font-size: 28px;
 	}
 
 }
