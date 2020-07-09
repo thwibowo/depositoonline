@@ -159,7 +159,7 @@ header {
 	font-size: 40px;
 	color: #8dcc34;
 	font-style: italic;
-	letter-spacing: -3px;
+	letter-spacing: -1px;
 	font-weight: 600;
 
 }
@@ -755,6 +755,7 @@ footer{
 	}
 	
 	.main-home-wrapper h1{
+
 		font-size: 50px;
 	}
 	
