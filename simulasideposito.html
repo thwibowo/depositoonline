@@ -1,0 +1,336 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/pagestyle.css">
+	<title>
+		Simulasi Deposito By: Weni Suciyana
+	</title>
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div class="split-left">
+				<img class="logo-image" src="assets/logo.png" title="Bank Sulselbar">
+			</div>
+			<div class="split-right">
+				<a href="index.html"><img class="home-image" src="assets/home2.png" title="Home"></a>
+			</div>
+		</div>
+		<div class="bottom-header">
+			<div class="container">
+				<ul class="top-nav">
+					<li><a href="simulasideposito.html" class="side-nav-link">Simulasi Deposito</a></li>
+					<li><a href="bukadeposito.html" class="side-nav-link">Pembukaan Deposito</a></li>
+					<li><a href="#" class="side-nav-link">Pencairan Deposito</a></li>
+					<li><a href="#" class="side-nav-link">Status Deposito</a></li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</header>
+	<div class="main">
+		<div class="container">
+			<div class="main-content">
+				<h2>Simulasi Deposito</h2>
+
+				<p>Silahkan isi kolom input di bawah!</p>
+				
+				<table id="input-table" border="0">
+				<tr>
+					<td>
+						<span class="description">Nominal</span>
+					</td>
+					<td>
+						<div class="input-section">
+							<span id="label-name1">IDR</span>
+							<input id="input-number" type="text" placeholder="Nominal...">
+						</div>
+					</td>
+				<tr>
+					<td>
+						<span class="description">Jangka Waktu</span> 
+					</td>
+					<td>
+						<div class="input-section">
+							<select id="input-month">
+								<option value="1">1</option>
+								<option value="3">3</option>
+								<option value="6">6</option>
+								<option value="12">12</option>
+							</select>
+							<span id="label-name2">Bulan</span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="description">Tanggal Pembukaan</span> 
+					</td>
+					<td>
+						<input type="date" id="input-date" name="input-date" size="50">
+					</td>
+				</tr>
+				</table>
+					
+				<p id="catatan">*)Minimal nominal Rp 1.000.000</p></br>
+				<p id="information"></p>
+				
+				<span class="btn-submit" onclick="countFunction()">Submit</span>
+				
+				<table id="result-table">
+					<tr>
+						<th colspan="3">Hasil</th>
+					</tr>
+					<tr>
+						<td>Tanggal Pembukaan</td>
+						<td>:</td>
+						<td><p id="date"></p></td>
+					</tr>
+					<tr>
+						<td>Tanggal Jatuh Tempo</td>
+						<td>:</td>
+						<td><p id="newdate"></p></td>
+					</tr>
+					<tr>
+						<td>Nominal</td>
+						<td>:</td>
+						<td><p id="nominal"></p></td>
+					</tr>
+					<tr>
+						<td>Suku Bunga per Tahun</td>
+						<td>:</td>
+						<td><p id="suku_bunga"></p></td>
+					</tr>
+					<tr>
+						<td>Nominal Suku Bunga</td>
+						<td>:</td>
+						<td><p id="nominal_suku_bunga"></p></td>
+					</tr>
+					<tr>
+						<td>Nominal saat Jatuh Tempo</td>
+						<td>:</td>
+						<td><p id="nominal_jatuh_tempo"></p></td>
+					</tr>
+					<tr>
+						<td colspan="3" class="button-row"><span class="btn-submit" onclick="backFunction()">Kembali</span></td>
+					</tr>
+				</table>
+				
+			</div>
+		</div>
+	</div>
+	<footer>
+		<div class="container">
+			<div class="social-section">
+				<span class="follow-us">Follow Us!!</span>
+				<ul class="social-media">
+					<li><div class="socmed-icon">
+							<div class="socmed-logo">
+								<img class="social-media-logo" src="assets/facebook.png" title="facebook">
+							</div>
+							<p class="text-fill">Facebook</p>
+						</div>
+					</li>
+					<li><div class="socmed-icon">
+							<div class="socmed-logo">
+								<img class="social-media-logo" src="assets/twitter.png" title="twitter">
+							</div>
+							<p class="text-fill">Twitter</p>
+						</div>
+					</li>
+					<li><div class="socmed-icon">
+							<div class="socmed-logo">
+								<img class="social-media-logo" src="assets/youtube.png" title="youtube">
+							</div>
+							<p class="text-fill">Youtube</p>
+						</div>
+					</li>
+					<li><a href="https://www.instagram.com/wenisuciyana/">
+							<div class="socmed-icon">
+								<div class="socmed-logo">
+									
+									<img class="social-media-logo" src="assets/instagram.png" title="instagram">
+								</div>
+								<p class="text-fill">Instagram</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</footer>
+	
+	<script>
+		//fungsi untuk kalkulasi deposito
+		function countFunction() {
+			
+			var money, time_month, date, reminders, new_add_year, new_month, new_year, text;
+
+			// Get the value of the input field with id
+			money = document.getElementById("input-number").value;
+			time_month = document.getElementById("input-month").value;
+			date = document.getElementById("input-date").value;
+			
+			var total = 0;
+			var str = money; 
+			  
+			for (i = 0; i < str.length; i++) {
+				if(str[i]=="."){
+					total += 1;
+				}
+			}
+			  
+			for (j = 0; j < total; j++) {
+				str = str.replace(".", "");
+			}
+			
+			var initial_nominal = parseInt(str);
+			
+			
+			if(initial_nominal < 1000000){
+				document.getElementById("information").innerHTML = "Nominal tidak boleh kurang dari Rp 1.000.000!";
+			}
+			else if(date === ''){
+				document.getElementById("information").innerHTML = "Tanggal tidak boleh kosong!";
+			}
+			else if(money === ''){
+				document.getElementById("information").innerHTML = "Nominal tidak boleh kosong!";
+			}
+			else if ((date === '') && (money === '')){
+				document.getElementById("information").innerHTML = "Bagian Nominal dan Tanggal tidak boleh kosong!";
+			}
+			else if ((initial_nominal < 1000000) && (date === '')){
+				document.getElementById("information").innerHTML = "Nominal dan Tanggal kurang tepat!!";
+			}
+			else{
+				
+				document.getElementById("result-table").style.visibility = "visible";
+				document.getElementById("result-table").style.zIndex = 99;
+			
+				var time_month_integer = parseInt(time_month);
+				  
+				var sub_day = parseInt(date.substring(8,10));
+				var sub_month = parseInt(date.substring(5,7));
+				var sub_year = parseInt(date.substring(0,4));
+				
+				//add the total month to the actual month in date
+				var new_sub_month = sub_month + time_month_integer;
+				
+				if (new_sub_month > 12) {
+					reminders = new_sub_month % 12;
+					new_add_year = (new_sub_month - reminders)/12;
+					
+					new_month = reminders;
+					new_year = sub_year + new_add_year;
+				}
+				else {
+					new_month = sub_month + time_month_integer;
+					new_year = sub_year
+				}
+
+				//add all of the new date after total month addition
+				var old_date = sub_month + "-" + sub_day + "-" + sub_year; 
+				var new_date = new_month + "-" + sub_day + "-" + new_year;
+				
+				//daysbetween calculation!!!!!
+				var date1 = new Date(old_date);
+				var date2 = new Date(new_date);
+				
+				var time_calculation = date2.getTime() - date1.getTime();
+				//output
+				var days_calculation = time_calculation / (1000 * 3600 * 24);
+				
+				var bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+				var month_post = bulan[sub_month - 1];
+				var new_month_post = bulan[new_month - 1];
+				var initial_date_post = sub_day + " " + month_post + " " + sub_year;
+				var new_date_post = sub_day + " " + new_month_post + " " + new_year;
+				
+				var rate_bunga, suku_bunga, total_bunga, total_bunga_bersih, total_pajak, hasil_akhir;
+				
+				if (time_month_integer == 1 || time_month_integer == 3){ 
+					rate_bunga = 525/10000; 
+					suku_bunga = "5,25%";
+				}
+				else if (time_month_integer == 6 || time_month_integer == 12){ 
+					rate_bunga = 550/10000;
+					suku_bunga = "5,50%";
+				}
+				
+				total_bunga = Math.round((initial_nominal * rate_bunga * (days_calculation/time_month_integer))/365);
+				
+				if (initial_nominal > 7500000){ 
+					total_pajak = Math.round(total_bunga * (2/10)); 
+				}
+				else{
+					total_pajak = 0;
+				}
+				total_bunga_bersih = total_bunga - total_pajak;
+				
+				hasil_akhir = initial_nominal + total_bunga_bersih;
+				
+				///////////FUNGSI PENAMBAH SEPARATOR////////////////
+				function numberSeparator(bilangan){
+					var	number_string = bilangan.toString(),
+					sisa 	= number_string.length % 3,
+					rupiah 	= number_string.substr(0, sisa),
+					ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+			
+					if (ribuan) {
+							separator = sisa ? '.' : '';
+							rupiah += separator + ribuan.join('.');
+					}
+					return rupiah;
+				}
+				////////////////////Menambah Separator Kembali//////////////////////////
+				
+				var total_bunga_bersih_plus = numberSeparator(total_bunga_bersih);
+				var hasil_akhir_plus = numberSeparator(hasil_akhir);
+				
+				/////////////////////////////////////////////////////////////////////
+				
+				//output
+				document.getElementById("nominal").innerHTML = money;
+				document.getElementById("date").innerHTML = initial_date_post;
+				document.getElementById("newdate").innerHTML = new_date_post;
+				document.getElementById("suku_bunga").innerHTML = suku_bunga;
+				document.getElementById("nominal_suku_bunga").innerHTML = total_bunga_bersih_plus;
+				document.getElementById("nominal_jatuh_tempo").innerHTML = hasil_akhir_plus;
+			}
+			
+		}
+		
+		//fungsi untuk menambahkan separator ribuan pada kolom input
+		var input_number = document.getElementById('input-number');
+		input_number.addEventListener('keyup', function(e)
+		{
+			input_number.value = formatRupiah(this.value);
+		});
+		
+		
+		/* Fungsi */
+		function formatRupiah(angka, prefix)
+		{
+			var number_string = angka.replace(/[^,\d]/g, '').toString(),
+				split    = number_string.split(','),
+				sisa     = split[0].length % 3,
+				rupiah     = split[0].substr(0, sisa),
+				ribuan     = split[0].substr(sisa).match(/\d{3}/gi);
+				
+			if (ribuan) {
+				separator = sisa ? '.' : '';
+				rupiah += separator + ribuan.join('.');
+			}
+			
+			rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+			return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+		}
+		
+		function backFunction() {
+			document.getElementById("result-table").style.visibility = "hidden";
+		}
+	</script>
+</body>
+</html>
