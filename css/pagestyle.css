@@ -696,6 +696,28 @@ footer{
 		background-size: cover;
 		height: 1000px;
 	}
+	
+	.main-home-wrapper h1{
+		letter-spacing: -3px;
+		font-size: 40px;
+	}
+	
+	.heading-and-line{
+		padding: 15px 30px 40px 30px;
+		width: 400px;
+	}
+
+	.heading-and-line p{
+		font-size: 20px;
+	}
+
+	.bank{
+		font-size: 24px;
+	}
+
+	.sulselbar{
+		font-size: 24px;
+	}
 }
 
 @media all and (max-width: 670px){
@@ -748,8 +770,6 @@ footer{
 	.main-home-wrapper h1{
 		letter-spacing: -3px;
 		font-size: 60px;
-		color: #170387;
-		border-bottom: 5px solid #2162da;
 	}
 	
 	.heading-and-line{
@@ -758,27 +778,15 @@ footer{
 	}
 
 	.heading-and-line p{
-		margin-top:20px;
 		font-size: 26px;
-		color: black;
 	}
 
 	.bank{
 		font-size: 34px;
-		color: #8dcc34;
-		font-style: italic;
-		letter-spacing: -3px;
-		font-weight: 600;
-
 	}
 
 	.sulselbar{
 		font-size: 34px;
-		color: #170387;
-		font-style: italic;
-		letter-spacing: -3px;
-		font-weight: 600;
-		
 	}
 
 }
