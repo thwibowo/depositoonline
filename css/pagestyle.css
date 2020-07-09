@@ -705,27 +705,6 @@ footer{
 		height: 1000px;
 	}
 	
-	.main-home-wrapper h1{
-		letter-spacing: -3px;
-		font-size: 40px;
-	}
-	
-	.heading-and-line{
-		padding: 15px 30px 40px 30px;
-		width: 400px;
-	}
-
-	.heading-and-line p{
-		font-size: 20px;
-	}
-
-	.bank{
-		font-size: 26px;
-	}
-
-	.sulselbar{
-		font-size: 26px;
-	}
 }
 
 @media all and (max-width: 670px){
@@ -776,7 +755,6 @@ footer{
 	}
 	
 	.main-home-wrapper h1{
-		letter-spacing: -3px;
 		font-size: 60px;
 	}
 	
