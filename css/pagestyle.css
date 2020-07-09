@@ -1,0 +1,667 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #1f1f1f;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(207, 207, 207);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+header {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+.container {
+	position: relative;
+  width: 100%;
+  max-width: 1240px;
+  height:100%;
+  margin: 0 auto;
+}
+
+.bottom-header{
+	width: 100%;
+	height: 50px;
+	background-color: #8dcc34;
+	
+}
+
+.logo-image{
+	width: 210px;
+	height: 85px;
+}
+
+.home-image{
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	filter: grayscale(100%);
+}
+
+.home-image:hover{
+	filter: grayscale(0%);
+}
+
+.home-image:active{
+	width: 56px;
+	height: 56px;
+	filter: grayscale(0%);
+	border: 4px solid rgba(62, 196, 255, 0.7);
+}
+
+.split-right{
+	position: absolute;
+	z-index: 100;
+	top: 15%;
+	left: 90%;
+}
+
+.top-nav{
+	display: flex;
+	float: right;
+}
+
+
+.top-nav a{
+	color: #000;
+	line-height: 50px;
+	font-size: 16px;
+	padding: 15px 20px;
+	font-weight: 600;
+}
+
+.top-nav a:hover{
+	color: #fff;
+	background-color: #95e91f;
+	line-height: 48px;
+	border-bottom: 2px solid #0d0346;
+	cursor: pointer;
+}
+
+.main{
+	padding: 20px 15px;
+	margin: 15px 0px;
+}
+
+.main-home-wrapper{
+	background-image: url('../assets/bghome.jpg');
+	background-size: cover;
+	height: 700px;
+}
+
+.heading-and-line{
+	background-color: rgba(255,255,255, 0.5);
+	border-radius: 30px;
+	margin-top: 150px;
+	padding: 15px 50px 40px 50px;
+	width: 700px;
+	display: inline-block
+}
+
+.heading-and-line p{
+	margin-top:20px;
+	font-size: 30px;
+	color: black;
+}
+
+.bank{
+	font-size: 40px;
+	color: #8dcc34;
+	font-style: italic;
+	letter-spacing: -3px;
+	font-weight: 600;
+
+}
+
+.sulselbar{
+	font-size: 40px;
+	color: #170387;
+	font-style: italic;
+	letter-spacing: -3px;
+	font-weight: 600;
+	
+}
+
+.btn-wrapper{
+	margin-top: 20px;
+}
+
+.btn-masuk{
+	padding: 10px 30px;
+	border-radius: 10px;
+	background-color: rgb(33,98,218);
+	color: #fff;
+	font-size: 24px;
+	font-weight: 600
+}
+
+.btn-masuk:hover{
+	transition: 0.3s;
+	border: 5px solid rgb(33,98,218);
+	background-color: #fff;
+	color: rgb(33,98,218);
+}
+
+.main-home-wrapper h1{
+	letter-spacing: -3px;
+	font-size: 70px;
+	color: #170387;
+	border-bottom: 5px solid #2162da;
+}
+
+.main-content{
+	text-align: center;
+	margin-bottom:50px;
+}
+
+.buka-deposito-main-content{
+	text-align: left;
+	margin-bottom: 50px;
+}
+
+.syarat-ketentuan{
+	text-align: left;
+}
+
+.syarat-ketentuan p{
+	line-height: normal;
+}
+
+.alur-deposito{
+	width: auto;
+	height: auto;
+}
+
+.alur-deposito li{
+	float:left;
+	padding: 
+}
+.awal, .tengah, .akhir:hover{
+	cursor: pointer;
+}
+.awal{
+	border: 2px solid #58657c;
+	border-radius: 10px 0px 0px 10px;
+	padding: 10px 20px;
+	background-color: #073ea3;
+	color: #fff;
+	font-weight: 600;
+}
+
+.tengah{
+	border-top: 2px solid #58657c;
+	border-bottom: 2px solid #58657c;
+	padding: 10px 20px;
+	background-color: #5690fc;
+	font-weight: 600;
+}
+
+.akhir{
+	border-radius: 0px 10px 10px 0px;
+	border: 2px solid #58657c;
+	padding: 10px 20px;
+	background-color: #5690fc;
+	font-weight: 600;
+}
+
+table#condition-table .number-column{
+	padding: 0px 10px 0px 30px;
+	vertical-align: top;
+}
+
+table#condition-table .sub-number-column{
+	padding: 0px 15px 0px 0px;
+	vertical-align: top;
+}
+
+table#input-table{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table#table-buka-deposito{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #ccc;
+	border: none;
+	border-collapse: collapse;
+	border-radius: 4px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 10px;
+}
+
+table#table-buka-deposito td{
+	padding: 10px 20px;
+	background-color: #ccc;
+}
+
+table#table-buka-deposito .top-line{
+	padding-top: 30px;
+}
+
+table#table-buka-deposito .bot-line{
+	padding-bottom: 30px;
+}
+
+#pilih-rekening{
+	outline: none !important;
+	border:1px solid #ccc;
+	padding-left: 10px;
+	width: 300px;
+	height: 30px;
+}
+
+#pilih-rekening:focus{
+	outline: none !important;
+	border:1px solid #ccc;
+	box-shadow: 0px 0px 3px #8dcc34;
+}
+
+#perpanjangan{
+	outline: none !important;
+	border:1px solid #ccc;
+	padding-left: 10px;
+	width: 150px;
+	height: 30px;
+}
+
+#perpanjangan:focus{
+	outline: none !important;
+	border:1px solid #ccc;
+	box-shadow: 0px 0px 3px #8dcc34;
+}
+
+.btn-proses-wrapper{
+	float:right;
+}
+
+.btn-proses-wrapper li{
+	float:right;
+}
+
+.btnproses{
+	width: 100px;
+	padding: 8px 0px;
+	font-size: 18px;
+	font-weight: 600;
+	border-radius: 10px;
+	text-align:center;
+	margin-right: 5px;
+}
+
+.proses3{
+	background-color: #ff4b52;
+	color: #fff;
+}
+
+.proses3:hover{
+	transition: 0.3s;
+	padding: 3px 0px;
+	border: 5px solid #ff4b52;
+	background-color: #fff;
+	color: #ff4b52;
+}
+
+.proses2{
+	background-color: #ff9b57;
+	color: #fff;
+}
+
+.proses2:hover{
+	transition: 0.3s;
+	padding: 3px 0px;
+	border: 5px solid #ff9b57;
+	background-color: #fff;
+	color: #ff9b57;
+}
+
+.proses1{
+	background-color: #8dcc34;
+	color: #fff;
+}
+
+.proses1:hover{
+	transition: 0.3s;
+	padding: 3px 0px;
+	border: 5px solid #8dcc34;
+	background-color: #fff;
+	color: #8dcc34;
+}
+	
+#catatan{
+	font-size: 12px;
+	font-style: italic;
+}
+
+#information{
+	font-weight: 600;
+	color: red;
+}
+
+table#result-table{
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: -1;
+	background-color: #ccc;
+	visibility: hidden;
+	border: none;
+	border-collapse: collapse;
+	border-radius: 4px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 10px;
+}
+
+table#result-table tr:nth-child(odd){
+	background-color: #fff;
+}
+
+table#result-table tr:nth-child(even){
+	background-color: #ccc;
+}
+
+table#result-table th{
+  background-color: #ff7b21;
+  color: white;
+  font-size: 20;
+}
+
+table#result-table td{
+	padding: 10px 10px;
+}
+table#result-table th{
+	padding: 10px 10px;
+}
+
+.button-row{
+	text-align: center;
+}
+
+.description{
+	padding-right: 5px;
+	font-size: 16px;
+}
+
+.after-header{
+	padding: 0px 20px;
+	margin-top: 30px;
+}
+
+.before-footer{
+	padding: 0px 20px;
+	margin-bottom: 50px;
+}
+
+.btn-buka-deposito{
+	float: right;
+	padding: 10px 30px;
+	background-color: #8dcc34;
+	color: #fff;
+	font-size: 20px;
+	font-weight: 600;
+	border-radius: 10px;
+}
+
+.btn-buka-deposito:hover{
+	transition: 0.3s;
+	padding: 5px 25px;
+	border: 5px solid #8dcc34;
+	background-color: #fff;
+	color: #8dcc34;
+}
+
+footer{
+	background-color: #0d0346;
+	color: white;
+	left: 0;
+	bottom: 0;
+	height:130px;
+	width: 100%
+}
+
+.social-section{
+	display: flex;
+	float: left;
+	padding-top: 20px;
+}
+
+.follow-us{
+	margin-right: 10px;
+	margin-top: 15px;
+}
+
+.social-media{
+	display: flex;
+	float: left;
+}
+
+.social-media li{
+	margin: 0px 10px;
+}
+
+.social-media-logo{
+	width: 40px;
+	height: 40px;
+}
+
+.social-media p{
+	font-size: 10px;
+	text-align: center;
+	color: white;
+}
+
+.input-section{
+	border-collapse: separate;
+    display: table;
+}
+
+#input-number{
+	width: 125px;
+}
+
+#input-number, #input-month{
+		outline: none !important;
+		border:1px solid #ccc;
+    	display: table-cell;
+        height: 30px;
+		padding-left: 10px;
+        
+        
+}
+#input-number:focus{
+		outline: none !important;
+		border:1px solid #ccc;
+    	box-shadow: 0px 0px 3px #8dcc34;
+}
+
+#input-month:focus{
+	outline: none !important;
+		border:1px solid #ccc;
+    	box-shadow: 0px 0px 3px #8dcc34;
+}
+
+#input-date{
+	padding-left: 10px;
+	outline: none !important;
+	border:1px solid #ccc;
+	height: 30px;
+	
+}
+
+#input-date:focus{
+	outline: none !important;
+	border:1px solid #ccc;
+	height: 30px;
+	box-shadow: 0px 0px 3px #8dcc34;
+}
+    
+#label-name1{
+    border-radius: 6px 0px 0px 6px;
+    display: table-cell;
+    padding: 0px 10px;
+    height: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-right: 0;
+    vertical-align: middle; 
+}
+
+#label-name2{
+    border-radius: 0px 6px 6px 0px;
+    display: table-cell;
+    padding: 0px 10px;
+    height: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-left: 0;
+    vertical-align: middle; 
+}
+
+.btn-submit{
+	display: inline-block;
+	padding: 5px 20px;
+	font-weight: 600;
+	background-color: rgba(141, 204, 52, 1);
+	color: #000;
+	cursor: pointer;
+	border-radius: 4px;
+	box-shadow: 0 5px #1a7940;
+}
+
+.btn-submit:hover{
+	background-color: rgba(141, 204, 52, 0.8);
+}
+
+.btn-submit:active{
+	position: relative;
+	top: 5px;
+	color: #fff;
+	box-shadow: none;
+}
+
+/*///////////////////////////////BAGIAN CHECKBOX/////////////////////////////////*/
+/* The container */
+.cekboks {
+
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.cekboks input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+	border: 1px solid black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: white;
+}
+
+/* On mouse-over, add a grey background color */
+.cekboks:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.cekboks input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.cekboks input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.cekboks .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/*///////////////////////////////////////////////////////////////////////////////*/
