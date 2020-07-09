@@ -730,7 +730,7 @@ footer{
 
 @media all and (max-width: 670px){
 	
-	header{
+	.header{
 		visibility: hidden;
 		position: fixed;
 	}
