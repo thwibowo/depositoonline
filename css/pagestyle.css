@@ -183,7 +183,7 @@ header {
 	background-color: rgb(33,98,218);
 	color: #fff;
 	font-size: 24px;
-	font-weight: 600
+	font-weight: 600;
 }
 
 .btn-masuk:hover{
@@ -516,6 +516,16 @@ footer{
 	width: 100%
 }
 
+.footer{
+	padding: 20px 0px 60px 0px;
+	background-color: #0d0346;
+	color: white;
+	left: 0;
+	bottom: 0;
+	height:auto;
+	width: 100%
+}
+
 .social-section{
 	display: flex;
 	float: left;
@@ -748,7 +758,48 @@ footer{
 	.main-home-wrapper{
 		background-image: url('../assets/bghome_mobile.jpg');
 		background-size: cover;
-		height: 2000px;
+		height: 1800px;
+		width: 1181px;
+	}
+	
+	.footer{
+		width: 1181px;
+	}
+	
+	.heading-and-line{
+		margin-top: 400px;
+		width: 800px;
+	}
+
+	.heading-and-line p{
+		margin-top:20px;
+		font-size: 40px;
+	}
+
+	.bank{
+		font-size: 50px;
+	}
+
+	.sulselbar{
+		font-size: 50px;
+	}
+
+	.btn-wrapper{
+		margin-top: 20px;
+	}
+
+	.btn-masuk{
+		padding: 15px 35px;
+		font-size: 34px;
+	}
+
+	.btn-masuk:hover{
+		border: 7px solid rgb(33,98,218);
+	}
+
+	.main-home-wrapper h1{
+		font-size: 90px;
+		border-bottom: 10px solid #2162da;
 	}
 	
 }
@@ -764,6 +815,11 @@ footer{
 		background-image: url('../assets/bghome_mobile.jpg');
 		background-size: cover;
 		height: 1000px;
+		width: 670px
+	}
+	
+	.footer{
+		width: 670px;
 	}
 	
 	.top-nav a{
