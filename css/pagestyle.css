@@ -219,17 +219,24 @@ header {
 }
 
 .alur-deposito{
-	width: auto;
 	height: auto;
+	width: auto;
 }
 
-.alur-deposito li{
-	float:left;
-	padding: 
+.alur-proses-deposito{
+	float: left;
+	display: flex;
+	flex-wrap: wrap;
 }
+
+.alur-proses-deposito li{
+	flex: auto;
+}
+
 .awal, .tengah, .akhir:hover{
 	cursor: pointer;
 }
+
 .awal{
 	border: 2px solid #58657c;
 	border-radius: 10px 0px 0px 10px;
@@ -245,6 +252,15 @@ header {
 	padding: 10px 20px;
 	background-color: #5690fc;
 	font-weight: 600;
+}
+
+.tengah1{
+	border-top: 2px solid #58657c;
+	border-bottom: 2px solid #58657c;
+	padding: 10px 20px;
+	background-color: #073ea3;
+	font-weight: 600;
+	color: #fff;
 }
 
 .akhir{
@@ -301,6 +317,21 @@ table#table-buka-deposito .bot-line{
 	padding-bottom: 30px;
 }
 
+table#table-buka-deposito .mid-line{
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.command{
+	font-size: 20px;
+	font-style: italic;
+	font-weight: 600;
+}
+
+.line2{
+	color: red;
+}
+
 #pilih-rekening{
 	outline: none !important;
 	border:1px solid #ccc;
@@ -331,10 +362,12 @@ table#table-buka-deposito .bot-line{
 
 .btn-proses-wrapper{
 	float:right;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .btn-proses-wrapper li{
-	float:right;
+	flex: auto;
 }
 
 .btnproses{
@@ -533,7 +566,15 @@ footer{
 	width: 125px;
 }
 
-#input-number, #input-month{
+#input-number1{
+	width: 200px;
+}
+
+#input-month{
+	width: 50px;
+}
+
+#input-number, #input-number1, #input-month{
 		outline: none !important;
 		border:1px solid #ccc;
     	display: table-cell;
@@ -543,6 +584,11 @@ footer{
         
 }
 #input-number:focus{
+		outline: none !important;
+		border:1px solid #ccc;
+    	box-shadow: 0px 0px 3px #8dcc34;
+}
+#input-number1:focus{
 		outline: none !important;
 		border:1px solid #ccc;
     	box-shadow: 0px 0px 3px #8dcc34;
@@ -702,7 +748,7 @@ footer{
 	.main-home-wrapper{
 		background-image: url('../assets/bghome_mobile.jpg');
 		background-size: cover;
-		height: 1000px;
+		height: 2000px;
 	}
 	
 }
