@@ -205,9 +205,6 @@
 				document.getElementById("information").innerHTML = "Nominal dan Tanggal kurang tepat!!";
 			}
 			else{
-				
-				document.getElementById("result-table").style.visibility = "visible";
-				document.getElementById("result-table").style.zIndex = 99;
 			
 				var time_month_integer = parseInt(time_month);
 				  
@@ -215,89 +212,109 @@
 				var sub_month = parseInt(date.substring(5,7));
 				var sub_year = parseInt(date.substring(0,4));
 				
-				//add the total month to the actual month in date
-				var new_sub_month = sub_month + time_month_integer;
+				var today = new Date();
+				var dd = String(today.getDate()).padStart(2, '0');
+				var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+				var yyyy = today.getFullYear();
 				
-				if (new_sub_month > 12) {
-					reminders = new_sub_month % 12;
-					new_add_year = (new_sub_month - reminders)/12;
+				var dd_int = parseInt(dd);
+				var mm_int = parseInt(mm);
+				var yy_int = parseInt(yyyy);
+				
+				//anti backdate system
+				if(((sub_year == yy_int) && (sub_month == mm_int) && (sub_day < dd_int)) || ((sub_year == yy_int) && (sub_month < mm_int)) || (sub_year < yy_int))
+				{
+					document.getElementById("information").innerHTML = "Tanggal pembukaan tidak bisa mengambil tanggal sebelumnya!";
+				}
+				else
+				{
+					document.getElementById("result-table").style.visibility = "visible";
+					document.getElementById("result-table").style.zIndex = 99;
 					
-					new_month = reminders;
-					new_year = sub_year + new_add_year;
-				}
-				else {
-					new_month = sub_month + time_month_integer;
-					new_year = sub_year
-				}
-
-				//add all of the new date after total month addition
-				var old_date = sub_month + "-" + sub_day + "-" + sub_year; 
-				var new_date = new_month + "-" + sub_day + "-" + new_year;
-				
-				//daysbetween calculation!!!!!
-				var date1 = new Date(old_date);
-				var date2 = new Date(new_date);
-				
-				var time_calculation = date2.getTime() - date1.getTime();
-				//output
-				var days_calculation = time_calculation / (1000 * 3600 * 24);
-				
-				var bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-				var month_post = bulan[sub_month - 1];
-				var new_month_post = bulan[new_month - 1];
-				var initial_date_post = sub_day + " " + month_post + " " + sub_year;
-				var new_date_post = sub_day + " " + new_month_post + " " + new_year;
-				
-				var rate_bunga, suku_bunga, total_bunga, total_bunga_bersih, total_pajak, hasil_akhir;
-				
-				if (time_month_integer == 1 || time_month_integer == 3){ 
-					rate_bunga = 525/10000; 
-					suku_bunga = "5,25%";
-				}
-				else if (time_month_integer == 6 || time_month_integer == 12){ 
-					rate_bunga = 550/10000;
-					suku_bunga = "5,50%";
-				}
-				
-				total_bunga = Math.round((initial_nominal * rate_bunga * (days_calculation/time_month_integer))/365);
-				
-				if (initial_nominal > 7500000){ 
-					total_pajak = Math.round(total_bunga * (2/10)); 
-				}
-				else{
-					total_pajak = 0;
-				}
-				total_bunga_bersih = total_bunga - total_pajak;
-				
-				hasil_akhir = initial_nominal + total_bunga_bersih;
-				
-				///////////FUNGSI PENAMBAH SEPARATOR////////////////
-				function numberSeparator(bilangan){
-					var	number_string = bilangan.toString(),
-					sisa 	= number_string.length % 3,
-					rupiah 	= number_string.substr(0, sisa),
-					ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
-			
-					if (ribuan) {
-							separator = sisa ? '.' : '';
-							rupiah += separator + ribuan.join('.');
+					//add the total month to the actual month in date
+					var new_sub_month = sub_month + time_month_integer;
+					
+					if (new_sub_month > 12) {
+						reminders = new_sub_month % 12;
+						new_add_year = (new_sub_month - reminders)/12;
+						
+						new_month = reminders;
+						new_year = sub_year + new_add_year;
 					}
-					return rupiah;
+					else {
+						new_month = sub_month + time_month_integer;
+						new_year = sub_year
+					}
+
+					//add all of the new date after total month addition
+					var old_date = sub_month + "-" + sub_day + "-" + sub_year; 
+					var new_date = new_month + "-" + sub_day + "-" + new_year;
+					
+					//daysbetween calculation!!!!!
+					var date1 = new Date(old_date);
+					var date2 = new Date(new_date);
+					
+					var time_calculation = date2.getTime() - date1.getTime();
+					//output
+					var days_calculation = time_calculation / (1000 * 3600 * 24);
+					
+					var bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+					var month_post = bulan[sub_month - 1];
+					var new_month_post = bulan[new_month - 1];
+					var initial_date_post = sub_day + " " + month_post + " " + sub_year;
+					var new_date_post = sub_day + " " + new_month_post + " " + new_year;
+					
+					var rate_bunga, suku_bunga, total_bunga, total_bunga_bersih, total_pajak, hasil_akhir;
+					
+					if (time_month_integer == 1 || time_month_integer == 3){ 
+						rate_bunga = 525/10000; 
+						suku_bunga = "5,25%";
+					}
+					else if (time_month_integer == 6 || time_month_integer == 12){ 
+						rate_bunga = 550/10000;
+						suku_bunga = "5,50%";
+					}
+					
+					total_bunga = Math.round((initial_nominal * rate_bunga * (days_calculation/time_month_integer))/365);
+					
+					if (initial_nominal > 7500000){ 
+						total_pajak = Math.round(total_bunga * (2/10)); 
+					}
+					else{
+						total_pajak = 0;
+					}
+					total_bunga_bersih = total_bunga - total_pajak;
+					
+					hasil_akhir = initial_nominal + total_bunga_bersih;
+					
+					///////////FUNGSI PENAMBAH SEPARATOR////////////////
+					function numberSeparator(bilangan){
+						var	number_string = bilangan.toString(),
+						sisa 	= number_string.length % 3,
+						rupiah 	= number_string.substr(0, sisa),
+						ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+				
+						if (ribuan) {
+								separator = sisa ? '.' : '';
+								rupiah += separator + ribuan.join('.');
+						}
+						return rupiah;
+					}
+					////////////////////Menambah Separator Kembali//////////////////////////
+					
+					var total_bunga_bersih_plus = numberSeparator(total_bunga_bersih);
+					var hasil_akhir_plus = numberSeparator(hasil_akhir);
+					
+					/////////////////////////////////////////////////////////////////////
+					
+					//output
+					document.getElementById("nominal").innerHTML = money;
+					document.getElementById("date").innerHTML = initial_date_post;
+					document.getElementById("newdate").innerHTML = new_date_post;
+					document.getElementById("suku_bunga").innerHTML = suku_bunga;
+					document.getElementById("nominal_suku_bunga").innerHTML = total_bunga_bersih_plus;
+					document.getElementById("nominal_jatuh_tempo").innerHTML = hasil_akhir_plus;
 				}
-				////////////////////Menambah Separator Kembali//////////////////////////
-				
-				var total_bunga_bersih_plus = numberSeparator(total_bunga_bersih);
-				var hasil_akhir_plus = numberSeparator(hasil_akhir);
-				
-				/////////////////////////////////////////////////////////////////////
-				
-				//output
-				document.getElementById("nominal").innerHTML = money;
-				document.getElementById("date").innerHTML = initial_date_post;
-				document.getElementById("newdate").innerHTML = new_date_post;
-				document.getElementById("suku_bunga").innerHTML = suku_bunga;
-				document.getElementById("nominal_suku_bunga").innerHTML = total_bunga_bersih_plus;
-				document.getElementById("nominal_jatuh_tempo").innerHTML = hasil_akhir_plus;
 			}
 			
 		}
