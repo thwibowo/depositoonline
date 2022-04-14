@@ -201,6 +201,7 @@ header {
 }
 
 .main-content{
+	margin-top: 150px;
 	text-align: center;
 	margin-bottom:50px;
 }
@@ -218,14 +219,10 @@ header {
 	line-height: normal;
 }
 
-.alur-deposito{
-	height: auto;
-	width: auto;
-}
-
 .alur-proses-deposito{
-	float: left;
 	display: flex;
+	flex-direction: row;
+	float: left;
 	flex-wrap: wrap;
 }
 
@@ -506,17 +503,7 @@ table#result-table th{
 	color: #8dcc34;
 }
 
-footer{
-	padding: 20px 0px 60px 0px;
-	background-color: #0d0346;
-	color: white;
-	left: 0;
-	bottom: 0;
-	height:auto;
-	width: 100%
-}
-
-.footer{
+footer, .footer{
 	padding: 20px 0px 60px 0px;
 	background-color: #0d0346;
 	color: white;
@@ -759,11 +746,11 @@ footer{
 		background-image: url('../assets/bghome_mobile.jpg');
 		background-size: cover;
 		height: 1800px;
-		width: 1181px;
+		width: 1180px;
 	}
 	
 	.footer{
-		width: 1181px;
+		width: 1180px;
 	}
 	
 	.heading-and-line{
